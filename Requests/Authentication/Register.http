@@ -1,0 +1,12 @@
+
+POST http://localhost:5007/auth/register
+
+Content-Type: application/json
+
+{
+	"firstName": "Sudip",
+	"lastName": "Parajuli",
+	"email": "sudipparajuli06@gmial.com",
+	"password": "Sudip1234"
+
+}
