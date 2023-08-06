@@ -2,7 +2,7 @@
 
 public interface IAuthenticationService
 {
-    AuthenticationResult Register(
+    AuthenticationResult  Register(
         string firstName,
         string lastName, 
         string email,  

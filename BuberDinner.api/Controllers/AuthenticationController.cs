@@ -1,5 +1,5 @@
 ﻿using BuberDinner.Contracts.Authentication;
-using Microsoft.AspNetCore.Authentication;
+using BuberDinner.Application.Services.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -14,7 +14,7 @@ public class AuthenticationController :ControllerBase
 {
     private readonly IAuthenticationService _authenticationService;
 
-    public AuthenticationController(IAuthenticationService authenticationService)
+    public AuthenticationController( IAuthenticationService authenticationService)
     {
         _authenticationService = authenticationService;
     }

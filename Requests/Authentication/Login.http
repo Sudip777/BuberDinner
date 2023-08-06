@@ -1,12 +1,12 @@
 
-POST http://localhost:5007/auth/login
+@host= http://localhost:5007
 
-
+POST {{host}}/auth/login
 Content-Type: application/json
+
 
 {
 	
 	"email": "sudipparajuli06@gmial.com",
 	"password": "Sudip1234"
-
 }

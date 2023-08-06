@@ -1,8 +1,16 @@
-var builder = WebApplication.CreateBuilder(args);
+using BuberDinner.Application;
+using BuberDinner.Infrastructure;
 
-// Add services to the container.
+
+var builder = WebApplication.CreateBuilder(args);
+{
+builder.Services
+        .AddApplication()
+        .AddInfrastructure();
 
 builder.Services.AddControllers();
+
+}
 
 
 var app = builder.Build();
