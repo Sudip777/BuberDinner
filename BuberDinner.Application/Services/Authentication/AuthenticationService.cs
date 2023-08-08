@@ -1,5 +1,12 @@
 ﻿
 using BuberDinner.Application.Services.Authentication;
+using BuberDinner.Application.Common.Interfaces.Authentication;
+
+namespace BuberDinner.Application.Services.Authentication;
+
+
+
+
 
 public class AuthenticationService : IAuthenticationService
 {
@@ -23,7 +30,7 @@ public class AuthenticationService : IAuthenticationService
         //Create JWT Token
 
         Guid userId = Guid.NewGuid(); 
-        var token = _jwtTokenGenerator.Generator(userId, firstName, lastName);
+        var token = _jwtTokenGenerator.GenerateToken(userId, firstName, lastName);
         
 
        return new AuthenticationResult(
