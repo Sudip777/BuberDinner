@@ -63,8 +63,8 @@ POST {{host}}/auth/register
 "id" : "asadhsjhdjs90292922",
 "firstName" : "Sudip",
 "lastName" : "Parajuli",
-"email" : "sduipparajuli06@gmail.com",
-"token" : "ehandnasas3343"
+"email" : "sudipparajuli06@gmail.com",
+"token" : "ehandnsdsd3343"
 
 }
 ```
