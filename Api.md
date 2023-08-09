@@ -41,8 +41,8 @@ POST {{host}}/auth/register
  "id": "asadhsjhdjs90292922",
  "firstName": "Sudip",
  "lastName": "Parajuli",
- "email": "sudipparajuli06@gmail.com"
- "tokem" = "ehandn..3343"
+ "email": "sudipparajuli06@gmail.com",
+ "token": "ehandnsdsd3343",
 }
 ``` 
 
@@ -51,7 +51,7 @@ POST {{host}}/auth/register
 {
  
  "email": "sudipparajuli06@gmial.com",
-	"password": "Sudip1234"
+ "password": "Sudip1234"
 }
 ``` 
 
@@ -60,11 +60,11 @@ POST {{host}}/auth/register
 
 ```json
 {
-"id" = "asadhsjhdjs90292922",
-"firstName" = "Sudip",
-"lastName" = "Parajuli",
-"email" = "sduipparajuli06@gmail.com",
-"token" = "ehandn..3343"
+"id" : "asadhsjhdjs90292922",
+"firstName" : "Sudip",
+"lastName" : "Parajuli",
+"email" : "sduipparajuli06@gmail.com",
+"token" : "ehandn..3343"
 
 }
 ```
