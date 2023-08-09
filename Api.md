@@ -64,7 +64,7 @@ POST {{host}}/auth/register
 "firstName" : "Sudip",
 "lastName" : "Parajuli",
 "email" : "sduipparajuli06@gmail.com",
-"token" : "ehandn..3343"
+"token" : "ehandnasas3343"
 
 }
 ```
