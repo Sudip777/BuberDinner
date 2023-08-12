@@ -24,7 +24,7 @@ POST {{host}}/auth/register
 {
 	"firstName": "Sudip",
 	"lastName": "Parajuli",
-	"email": "sudipparajuli06@gmial.com",
+	"email": "sudipparajuli06@gmail.com",
 	"password": "Sudip1234"
 
 }
@@ -50,7 +50,7 @@ POST {{host}}/auth/register
 ```json
 {
  
- "email": "sudipparajuli06@gmial.com",
+ "email": "sudipparajuli06@gmail.com",
  "password": "Sudip1234"
 }
 ``` 
