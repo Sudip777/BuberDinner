@@ -49,13 +49,10 @@ public class AuthenticationService : IAuthenticationService
 
         //3. Create JWT token
 
-        var token = _jwtTokenGenerator.GenerateToken(user.Id, firstName, lastName);
+        var token = _jwtTokenGenerator.GenerateToken(user);
         
        return new AuthenticationResult(
-           user.Id, 
-           firstName, 
-           lastName, 
-           email, 
+          user, 
            token);
     }
 
@@ -63,23 +60,23 @@ public class AuthenticationService : IAuthenticationService
              string email,
              string password)
     {
+        //1. Validate if the user exists or not
         if (_userRepository.GetUserByEmail (email)  is not User user)
         {
             throw new Exception("User with email does not exist");
         }
 
+        //2. Validate the password is correct
         if (user.Password != password)
         {
             throw new Exception("Invalid password");
         }
 
-        var token = _jwtTokenGenerator.GenerateToken(user.Id, user.FirstName, user.LastName);
+        //3. Create JWT token
+        var token = _jwtTokenGenerator.GenerateToken(user);
 
         return new AuthenticationResult(
-            user.Id,
-            user.FirstName,
-            user.LastName,
-            email,
+            user,
             token);
     }
 }
