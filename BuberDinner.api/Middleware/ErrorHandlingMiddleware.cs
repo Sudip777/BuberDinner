@@ -10,7 +10,7 @@ public class ErrorHandlingMiddleware
 
     public ErrorHandlingMiddleware(RequestDelegate next)
     {
-        _next = next;
+        _next = next;   
     }
 
 
