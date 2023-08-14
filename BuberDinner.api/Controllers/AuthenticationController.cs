@@ -22,20 +22,28 @@ public class AuthenticationController :ControllerBase
     [HttpPost("register")]
     public IActionResult Register(RegisterRequest request)
     {
-        var authResult = _authenticationService.Register(
+       OneOf<AuthenticationResult, DuplicateEmailError>  = _authenticationService.Register(
             request.FirstName, 
             request.LastName, 
             request.Email, 
             request.Password);
 
-        var response = new AuthenticationResponse(
+        if (registerResult.IsT0) ;
+        {
+            var authResult = registerResult.AsT0;
+            var response = new AuthenticationResponse(
             authResult.User.Id,
             authResult.User.FirstName,
             authResult.User.LastName,
             authResult.User.Email,
             authResult.Token);
 
-        return Ok(response);
+            return Ok(response);
+
+        }
+        return Problem(statusCode: StatusCodes.Status409Conflict, title:"Email already exists.")
+
+       
     }
 
 
