@@ -5,7 +5,7 @@ using BuberDinner.Application.Common.Errors;
 
 public interface IAuthenticationService
 {
-    OneOf<AuthenticationResult,DuplicateEmailError>  Register(
+    OneOf<AuthenticationResult,IError>  Register(
         string firstName,
         string lastName, 
         string email,  

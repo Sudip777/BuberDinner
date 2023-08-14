@@ -24,7 +24,7 @@ public class AuthenticationService : IAuthenticationService
     }
 
 
-    public OneOf<AuthenticationResult, DuplicateEmailError> Register(string firstName, string lastName, string email, string password)
+    public OneOf<AuthenticationResult,IError> Register(string firstName, string lastName, string email, string password)
     {
         
         //1. validate the user doesnot exist
