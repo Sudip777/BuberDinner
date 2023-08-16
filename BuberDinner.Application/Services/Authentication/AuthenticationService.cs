@@ -39,7 +39,7 @@ public class AuthenticationService : IAuthenticationService
 
         var user = new User
         {
-            FirstName = firstName,
+            FirstName = firstName, // name
             LastName = lastName,
             Email = email,
             Password = password
