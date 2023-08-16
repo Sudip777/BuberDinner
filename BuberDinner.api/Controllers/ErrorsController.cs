@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Diagnostics;
 using BuberDinner.Application.Common.Errors;
 
 
-namespace BuberDinner.Api.Controllers;
+namespace BuberDinner.Api.Controllers; 
 
 public class ErrorsController : ControllerBase
 {
-    [Route("/error")]
+    [Route("/error")] //routing
 
     public IActionResult Error()
     {
