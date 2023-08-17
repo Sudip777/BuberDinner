@@ -7,7 +7,7 @@ namespace BuberDinner.Api.Controllers;
 
 public class ErrorsController : ControllerBase
 {
-    [Route("/error")] //routing
+    [Route("/error")] 
 
     public IActionResult Error()
     {

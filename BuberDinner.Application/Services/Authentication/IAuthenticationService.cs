@@ -1,11 +1,11 @@
 ﻿namespace BuberDinner.Application.Services.Authentication;
-using OneOf;
+using FluentResults;
 using BuberDinner.Application.Common.Errors;
 
 
 public interface IAuthenticationService
 {
-    OneOf<AuthenticationResult,IError>  Register(
+    Result<AuthenticationResult>  Register(
         string firstName,
         string lastName, 
         string email,  
