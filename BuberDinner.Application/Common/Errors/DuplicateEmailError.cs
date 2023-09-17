@@ -9,4 +9,6 @@ public class DuplicateEmailError : IError
 
     public Dictionary<string, object> Metadata => throw new NotImplementedException();
 
+
+
 }
