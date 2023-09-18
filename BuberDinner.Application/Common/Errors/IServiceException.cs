@@ -1,8 +1,11 @@
 using System.Net;
-namespace BuberDinner.Application.Common.Errors;
 
-public interface IServiceException
+namespace BuberDinner.Application.Common.Errors
 {
-    public HttpStatusCode StatusCode { get;  }   
-    public string ErrorMessage { get; }
+    public interface IServiceException
+    {
+        HttpStatusCode StatusCode { get; }
+
+        string ErrorMessage { get; }
+    }
 }

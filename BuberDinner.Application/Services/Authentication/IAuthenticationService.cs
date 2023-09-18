@@ -12,7 +12,7 @@ public interface IAuthenticationService
         string password
         );
 
-    AuthenticationResult Login(
+    ErrorOr<AuthenticationResult> Login(
         string email, 
         string password
         );        

@@ -1,11 +1,11 @@
 namespace BuberDinner.Domain.Common.Errors;
-using ErrorOr; //from ErrorOr Package
+using ErrorOr;
 
-public static class Errors
+public static  partial class Errors
 {
     public static class User
     {
-        public static Error DuplicateEmail => Error.Conflict( //from errorOr Library
+        public static Error DuplicateEmail => Error.Conflict( // error object from errorOr Library
             code: "User.DuplicateEmail", 
             description: "Email is already in use.");
     }

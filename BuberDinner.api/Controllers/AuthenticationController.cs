@@ -22,38 +22,28 @@ namespace BuberDinner.Api.Controllers
         [HttpPost("register")]
         public IActionResult Register(RegisterRequest request)
         {
-            ErrorOr <AuthenticationResult> authResult = _authenticationService.Register(
+            ErrorOr<AuthenticationResult> authResult = _authenticationService.Register(
                 request.FirstName,
                 request.LastName,
                 request.Email,
                 request.Password);
 
-            return authResult.Match(
-                authResult => Ok(authResult),
-                - => Problem(statusCode: StatusCodes.Status409Conflict, title: "User already exists"));
-                )  
-
-            return Ok(response);
-
+            return authResult.MatchFirst(
+                authResult => Ok(MapAuthResult(authResult)),
+                firstError => Problem(statusCode: StatusCodes.Status409Conflict, title: firstError.Description));
+               
         }
 
-        private static AuthenticationResponse NewMethod(AuthenticationResult authResult)
+
+        private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
         {
             return new AuthenticationResponse(
-                authResult.User.Id,
-                authResult.User.FirstName,
-                authResult.User.LastName,
-                authResult.User.Email,
-                authResult.Token);
-
-                )
+                    authResult.User.Id,
+                    authResult.User.FirstName,
+                      authResult.User.LastName,
+                    authResult.User.Email,
+                    authResult.Token);
         }
-
-
-
-
-
-
 
 
         [HttpPost("login")]
