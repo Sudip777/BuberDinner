@@ -61,7 +61,7 @@ public class AuthenticationService : IAuthenticationService
         //1. Validate if the user exists or not
         if (_userRepository.GetUserByEmail(email) is not User user)
         {
-            return new Exception("User with given email doesnot exist:");
+            throw new Exception("User with given email doesnot exist:");
         }
 
           
@@ -69,7 +69,7 @@ public class AuthenticationService : IAuthenticationService
         //2. Validate the password is correct
         if (user.Password != password)
         {
-            return new  Exception("Invalid Password");
+            throw new  Exception("Invalid Password");
 
         }
 

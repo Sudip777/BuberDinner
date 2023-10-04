@@ -21,24 +21,14 @@ namespace BuberDinner.Api.Controllers
         [HttpPost("register")]
         public IActionResult Register(RegisterRequest request)
         {
-            Result<AuthenticationResult> authResult = _authenticationService.Register(
+            AuthenticationResult authResult = _authenticationService.Register(
                 request.FirstName,
                 request.LastName,
                 request.Email,
                 request.Password);
 
-            if (registerResult.IsSuccess)
-            {
-                return Ok(MapAuthResult(registerResult.Value));
-            }
+            return Ok(MapAuthResult(authResult));
 
-            var firstError = registerResult.Errors[0];
-
-            if(firstError is DuplicateEmailError)
-            {
-                return Problem(statusCode: StatusCodes.Status409Conflict, detail: "Email already Exists");
-            }
-            return Problem();
 
       
           
@@ -70,8 +60,7 @@ namespace BuberDinner.Api.Controllers
                 authResult.User.Email,
                 authResult.Token);*/
 
-            var authenticationResult = authResult.Match<AuthenticationResponse>(authResult => MapAuthResult(authResult),
-                ErrorEventArgs => throw new Exception());
+            var authenticationResult = MapAuthResult(authResult);
 
             return Ok(authenticationResult);
         }
