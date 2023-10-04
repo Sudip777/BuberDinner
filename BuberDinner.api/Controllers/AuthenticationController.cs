@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using BuberDinner.Domain.Entities;
 using BuberDinner.Application.Common.Errors;
-using ErrorOr;
 
 namespace BuberDinner.Api.Controllers
 {
@@ -22,16 +21,27 @@ namespace BuberDinner.Api.Controllers
         [HttpPost("register")]
         public IActionResult Register(RegisterRequest request)
         {
-            ErrorOr<AuthenticationResult> authResult = _authenticationService.Register(
+            Result<AuthenticationResult> authResult = _authenticationService.Register(
                 request.FirstName,
                 request.LastName,
                 request.Email,
                 request.Password);
 
-            return authResult.MatchFirst(
-                authResult => Ok(MapAuthResult(authResult)),
-                firstError => Problem(statusCode: StatusCodes.Status409Conflict, title: firstError.Description));
-               
+            if (registerResult.IsSuccess)
+            {
+                return Ok(MapAuthResult(registerResult.Value));
+            }
+
+            var firstError = registerResult.Errors[0];
+
+            if(firstError is DuplicateEmailError)
+            {
+                return Problem(statusCode: StatusCodes.Status409Conflict, detail: "Email already Exists");
+            }
+            return Problem();
+
+      
+          
         }
 
 
@@ -53,14 +63,17 @@ namespace BuberDinner.Api.Controllers
                 request.Email,
                 request.Password);
 
-            var response = new AuthenticationResponse(
+            /*var response = new AuthenticationResponse(
                 authResult.User.Id,
                 authResult.User.FirstName,
                 authResult.User.LastName,
                 authResult.User.Email,
-                authResult.Token);
+                authResult.Token);*/
 
-            return Ok(response);
+            var authenticationResult = authResult.Match<AuthenticationResponse>(authResult => MapAuthResult(authResult),
+                ErrorEventArgs => throw new Exception());
+
+            return Ok(authenticationResult);
         }
     }
 }
