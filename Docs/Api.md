@@ -42,7 +42,7 @@ POST {{host}}/auth/register
  "firstName": "Sudip",
  "lastName": "Parajuli",
  "email": "sudipparajuli06@gmail.com",
- "token": "ehandnsdsd3343",
+ "token": "ehandnsdsd3343ehandnsdsd3343abacadada",
 }
 ``` 
 
@@ -64,7 +64,7 @@ POST {{host}}/auth/register
 "firstName" : "Sudip",
 "lastName" : "Parajuli",
 "email" : "sudipparajuli06@gmail.com",
-"token" : "ehandnsdsd3343"
+"token" : "ehandnsdsd3343ehandnsdsd3343abacadada"
 
 }
 ```
